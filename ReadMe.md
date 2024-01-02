@@ -1,3 +1,10 @@
+## adding dual xarm custom launch @ingjae
+```
+roslaunch xarm_gazebo custom_dual_robot.launch
+roslaunch dual_xarm6_moveit_config custom_xarm6_moveit_gazebo.launch
+```
+---
+
 For simplified Chinese version: [简体中文版](./ReadMe_cn.md)    
 For **UFACTORY Lite 6** users, make sure you have followed the instructions before chapter 4.7 on this page, then switch to [ReadMe for Lite6](./ReadMe_others.md).  
 For **kinetic** users, please use the [kinetic branch](https://github.com/xArm-Developer/xarm_ros/tree/kinetic).
