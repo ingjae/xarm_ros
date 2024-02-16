@@ -5,6 +5,60 @@ roslaunch dual_xarm6_moveit_config custom_xarm6_moveit_gazebo.launch
 ```
 ---
 
+## installation
+```
+$ cd ~/catkin_ws/src/xarm_ros
+$ git pull
+$ git submodule sync
+$ git submodule update --init --remote
+```
+```
+rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro noetic
+rosdep install --from-paths . --ignore-src --rosdistro noetic -y
+```
+```
+cd ~/catkin_ws
+catkin_make
+```
+
+## Xarm 6 launch
+### Server
+```
+roslaunch xarm_bringup xarm6_server.launch robot_ip:=192.168.0.251 report_type:=normal
+
+```
+### Server + moveit
+```
+roslaunch xarm6_moveit_config realMove_exec.launch robot_ip:=192.168.0.251 velocity_control:=false report_type:=normal
+
+```
+
+## interface 
+### Service
+```
+/xarm/clear_err
+/xarm/get_err
+/xarm/set_mode
+/xarm/set_state
+/xarm/moveit_clear_err
+```
+```
+$ rosservice call /xarm/motion_ctrl 8 1
+$ rosservice call /xarm/set_mode 0
+$ rosservice call /xarm/set_state 0
+```
+```
+# make manual mode
+rosservice call /xarm/set_mode 2
+rosservice call /xarm/set_mode 2
+rosservice call /xarm/set_state 0
+# make moveit mode
+
+rosservice call /xarm/moveit_clear_err
+```
+---
+
 For simplified Chinese version: [简体中文版](./ReadMe_cn.md)    
 For **UFACTORY Lite 6/850** users, make sure you have followed the instructions before chapter 4.7 on this page, then switch to [ReadMe for Lite6/UF850](./ReadMe_others.md).    
 For **kinetic** users, please use the [kinetic branch](https://github.com/xArm-Developer/xarm_ros/tree/kinetic).
