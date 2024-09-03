@@ -22,7 +22,14 @@ cd ~/catkin_ws
 catkin_make
 ```
 
-## Xarm 6 launch
+## [SIMULATION] Xarm 6 launch
+```
+roslaunch xarm_gazebo xarm6_beside_table.launch 
+```
+```
+roslaunch xarm6_moveit_config xarm6_moveit_gazebo.launch
+```
+## [REAL] Xarm 6 launch
 ### Server
 ```
 roslaunch xarm_bringup xarm6_server.launch robot_ip:=192.168.0.251 report_type:=normal
