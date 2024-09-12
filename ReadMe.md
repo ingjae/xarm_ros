@@ -32,15 +32,18 @@ roslaunch xarm6_moveit_config xarm6_moveit_gazebo.launch
 ## [REAL] Xarm 6 launch
 ### Server
 ```
-roslaunch xarm_bringup xarm6_server.launch robot_ip:=192.168.0.251 report_type:=normal
+roslaunch xarm_bringup xarm6_server.launch robot_ip:=192.168.34.251 report_type:=normal
 
 ```
 ### Server + moveit
 ```
-roslaunch xarm6_moveit_config realMove_exec.launch robot_ip:=192.168.0.251 velocity_control:=false report_type:=normal
+roslaunch xarm6_moveit_config realMove_exec.launch robot_ip:=192.168.34.251 velocity_control:=false report_type:=normal
 
 ```
-
+### Velocity Control
+```
+roslaunch xarm_bringup xarm6_server.launch robot_ip:=192.168.34.251 report_type:=normal velocity_control:=True
+```
 ## interface 
 ### Service
 ```
