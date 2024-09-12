@@ -46,9 +46,9 @@ roslaunch xarm_bringup xarm6_server.launch robot_ip:=192.168.34.251 report_type:
 rosservice call /xarm/set_mode "data: 4"
 rosservice call /xarm/set_state "data: 0"
 ```
-# NO Timed-out version (will not stop until all-zero velocity command received!):
+ #NO Timed-out version (will not stop until all-zero velocity command received!):
 $ rosservice call /xarm/velo_move_joint [0.1,-0.1,0,0,0,-0.3] 1 0
-# With Timed-out version(controller firmware version >= 1.8.0): (if next velocity command not received within 0.2 seconds, xArm will stop)  
+#With Timed-out version(controller firmware version >= 1.8.0): (if next velocity command not received within 0.2 seconds, xArm will stop)  
 $ rosservice call /xarm/velo_move_joint_timed [0.1,-0.1,0,0,0,-0.3] 1 0 0.2
 
 ```
